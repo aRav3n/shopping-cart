@@ -1,0 +1,5 @@
+Pages:
+Homepage
+Shop 
+  Products
+  Cart
