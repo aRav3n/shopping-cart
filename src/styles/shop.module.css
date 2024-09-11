@@ -5,7 +5,9 @@
 
 .heading {
   background-color: #569b7588;
-  padding: 3vh 0;
+  font-size: 1rem;
+  margin-top: 3rem;
+  padding: 2vh 0;
   text-align: center;
   width: 100vw;
 }

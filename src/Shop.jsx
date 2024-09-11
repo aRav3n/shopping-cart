@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <h1 className={styles.heading}>Shopping</h1>
+      <h1 className={styles.heading}>Let&apos;s get it started in here!</h1>
       <div className={styles.container}>
         <Outlet />
       </div>
