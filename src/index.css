@@ -26,6 +26,7 @@ body {
   background-color: #569b7511;
   margin: 0;
   display: grid;
+  justify-content: center;
   justify-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -53,6 +54,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+#root {
+  display: grid;
+  justify-items: center;
 }
 
 @media (prefers-color-scheme: light) {

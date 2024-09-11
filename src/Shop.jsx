@@ -7,9 +7,7 @@ export default function Home() {
     <>
       <Nav />
       <h1 className={styles.heading}>Let&apos;s get it started in here!</h1>
-      <div className={styles.container}>
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   );
 }

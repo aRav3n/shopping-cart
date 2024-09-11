@@ -1,13 +1,33 @@
+.card {
+  border: 1px solid #00000088;
+  opacity: 80%;
+}
+
+.card img {
+  max-width: 100%;
+}
+
+.card:hover {
+  border: 1px solid #000000;
+  opacity: 100%;
+  outline: none;
+}
+
 .container {
   display: grid;
+  gap: 2vmin;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  padding: 1vh 1vw;
   place-content: center;
+  width: min(95vw, 1200px);
 }
 
 .heading {
   background-color: #569b7588;
   font-size: 1rem;
   margin-top: 3rem;
-  padding: 2vh 0;
+  padding: 1rem 0;
   text-align: center;
   width: 100vw;
 }
