@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  place-content: center;
+}
+
+.heading {
+  background-color: #569b7588;
+  padding: 3vh 0;
+  text-align: center;
+  width: 100vw;
+}
