@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import Nav from "./Navbar";
 import styles from "./styles/homepage.module.css";
 
 export default function Home() {
   return (
     <>
-      <Nav />
       <div className={styles.centeredDiv}>
         <h1>Our Story</h1>
         <p>
