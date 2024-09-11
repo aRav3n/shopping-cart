@@ -23,9 +23,10 @@ a:hover {
 }
 
 body {
+  background-color: #569b7511;
   margin: 0;
-  display: flex;
-  place-items: center;
+  display: grid;
+  justify-items: center;
   min-width: 320px;
   min-height: 100vh;
 }

@@ -17,8 +17,10 @@ LinkButton.propTypes = {
 
 export default function Navbar() {
   return (
-    <nav className={styles.navbar}>
-      <LinkButton displayName="Home" linkTo="/" />
-    </nav>
+      <nav className={styles.navbar}>
+        <LinkButton displayName="Home" linkTo="/" />
+        <LinkButton displayName="Products" linkTo="/shop/products" />
+        <LinkButton displayName="Cart" linkTo="/shop/cart" />
+      </nav>
   );
 }

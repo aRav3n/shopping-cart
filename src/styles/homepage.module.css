@@ -1,0 +1,9 @@
+.centeredDiv {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  max-width: 800px;
+  padding-top: 10vh;
+  width: 70vw;
+}

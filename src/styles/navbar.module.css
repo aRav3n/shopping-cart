@@ -1,8 +1,30 @@
 .navbar {
   background-color: #569b75;
+  display: flex;
   left: 0;
+  gap: 5vw;
+  justify-content: center;
   min-height: 1rem;
+  padding: 0.5rem 1rem;
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.navbar button {
+  background-color: #ffffff00;
+  border: none;
+  border-bottom: 2px solid #00000022;
+  border-top: 2px solid #00000022;
+  border-radius: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar button:hover {
+  background-color: #ffffff00;
+  border: none;
+  border-bottom: 2px solid #000000;
+  border-top: 2px solid #000000;
 }
