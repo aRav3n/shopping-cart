@@ -43,6 +43,24 @@
   width: 100vw;
 }
 
+.hidden {
+  display: none;
+}
+
+.message {
+  font-size: 2rem;
+  max-width: 80vw;
+}
+
+.payButton {
+  background-color: #00000022;
+  font-weight: bold;
+}
+
+.revealed {
+  display: block;
+}
+
 .separator {
   background-color: black;
   height: 1px;
