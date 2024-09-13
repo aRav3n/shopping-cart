@@ -15,18 +15,13 @@ LinkButton.propTypes = {
   linkTo: PropTypes.string.isRequired,
 };
 
-export default function Navbar({ cart }) {
-  const qty = cart.length;
-  const cartName = `Cart - ${qty}`;
+export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <LinkButton displayName="Home" linkTo="/" />
       <LinkButton displayName="Products" linkTo="/shop/products" />
-      <LinkButton displayName={cartName} linkTo="/shop/cart" />
+      <LinkButton displayName="Cart" linkTo="/shop/cart" />
     </nav>
   );
 }
 
-Navbar.propTypes = {
-  cart: PropTypes.array.isRequired,
-};

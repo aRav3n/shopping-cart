@@ -3,11 +3,12 @@ import { useState } from "react";
 import Nav from "./Navbar";
 
 export default function App() {
-  const [cart, setCart] = useState([]);
+  const emptyCart = [];
+  const [cart, setCart] = useState(emptyCart);
 
   return (
     <>
-      <Nav cart={cart} />
+      <Nav />
       <Outlet context={[cart, setCart]} />
     </>
   );
