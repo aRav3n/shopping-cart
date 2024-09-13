@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
+import { v4 as uuid } from "uuid";
 import styles from "./styles/shop.module.css";
 
 const addItemToCart = (item, cart, setCart) => {
@@ -10,7 +11,9 @@ const addItemToCart = (item, cart, setCart) => {
   for (let i = 0; i < newCart.length; i++) {
     if (!alreadyInCart) {
       if (newCart[i].description === item.description) {
-        newCart[i].qty++;
+        const cartObject = newCart[i];
+        cartObject.qty++;
+        cartObject.totalPrice = cartObject.qty * cartObject.price;
         alreadyInCart = true;
       }
     }
@@ -31,6 +34,8 @@ const createProductObject = (title, price, description, rating, imageURL) => {
   returnObject.rating = rating;
   returnObject.imageURL = imageURL;
   returnObject.qty = 1;
+  returnObject.totalPrice = price * 1;
+  returnObject.key = uuid();
 
   return returnObject;
 };

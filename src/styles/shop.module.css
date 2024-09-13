@@ -13,6 +13,17 @@
   outline: none;
 }
 
+.cartDisplay {
+  display: grid;
+  list-style-type: none;
+  width: max(80vw, 300px);
+}
+
+.cartRow {
+  display: flex;
+  justify-content: space-between;
+}
+
 .container {
   display: grid;
   gap: 2vmin;
@@ -30,4 +41,14 @@
   padding: 1rem 0;
   text-align: center;
   width: 100vw;
+}
+
+.separator {
+  background-color: black;
+  height: 1px;
+  width: 100%;
+}
+
+.totalPrice {
+  justify-self: end;
 }
