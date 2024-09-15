@@ -21,7 +21,6 @@ const addItemToCart = (item, cart, setCart) => {
   if (!alreadyInCart) {
     newCart.push(item);
   }
-  console.log(newCart);
   setCart(newCart);
 };
 
@@ -40,27 +39,24 @@ const createProductObject = (title, price, description, rating, imageURL) => {
   return returnObject;
 };
 
-function ProductCard({
-  title,
-  price,
-  description,
-  rating,
-  imageURL,
-  cart,
-  setCart,
-}) {
+function productCard(item, cart, setCart) {
+  const title = item.title;
+  const price = item.price;
+  const description = item.description;
+  const rating = item.rating;
+  const imageURL = item.imageURL;
+
   function addToCart() {
-    const object = createProductObject(
-      title,
-      price,
-      description,
-      rating,
-      imageURL
-    );
-    addItemToCart(object, cart, setCart);
+    addItemToCart(item, cart, setCart);
   }
+
   return (
-    <button type="button" className={styles.card} onClick={addToCart}>
+    <button
+      type="button"
+      className={styles.card}
+      onClick={addToCart}
+      key={title}
+    >
       <img src={imageURL} alt={title} />
       <h2>{title}</h2>
       <p>${price}</p>
@@ -73,24 +69,35 @@ function ProductCard({
   );
 }
 
-ProductCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
-  imageURL: PropTypes.string.isRequired,
+productCard.propTypes = {
+  item: PropTypes.object.isRequired,
   cart: PropTypes.array.isRequired,
   setCart: PropTypes.func.isRequired,
 };
 
 function ProductsList({ cart, setCart }) {
-  // https://fakestoreapi.com/products
   const [productsList, setProductsList] = useState(null);
+
+  const pushJsonToArray = (jsonObject) => {
+    const newArray = [];
+    for (let i = 0; i < jsonObject.length; i++) {
+      const item = jsonObject[i];
+      const itemObject = createProductObject(
+        item.title,
+        item.price,
+        item.description,
+        item.rating.rate,
+        item.image
+      );
+      newArray.push(itemObject);
+    }
+    setProductsList(newArray);
+  };
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products", { mode: "cors" })
       .then((response) => response.json())
-      .then((response) => setProductsList(response))
+      .then((response) => pushJsonToArray(response))
       .catch((error) => console.error(error));
   }, []);
 
@@ -98,28 +105,18 @@ function ProductsList({ cart, setCart }) {
     return <h1>Loading...</h1>;
   }
 
-  function SampleCard() {
-    return (
-      <ProductCard
-        title="Mountain Panel Loader 22L"
-        price="260"
-        description="Your grab-n-go trail bag, sized for everyday use across any terrain, be it Yosemite granite or NYC pavement."
-        rating="4.9"
-        imageURL="https://evergoods.us/cdn/shop/files/MOUNTAIN-PANEL-LOADER-22L-BLACK-MPL22-WATER-BOTTLE-POCKET-min_1_5000x.png"
-        cart={cart}
-        setCart={setCart}
-      />
+  function DisplayProductsList() {
+    const listItems = productsList.map((item) =>
+      productCard(item, cart, setCart)
     );
+
+    return <div className={styles.container}>{listItems}</div>;
   }
 
   return (
     <>
       <h2>Click on an item to add it to your cart</h2>
-      <div className={styles.container}>
-        <SampleCard />
-        <SampleCard />
-        <SampleCard />
-      </div>
+      <DisplayProductsList />
     </>
   );
 }

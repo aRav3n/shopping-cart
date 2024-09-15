@@ -1,5 +1,10 @@
 .card {
-  border: 1px solid #00000088;
+  align-content: space-between;
+  background-color: #ffffff;
+  border: 2px solid #00000022;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   opacity: 80%;
 }
 
@@ -8,7 +13,7 @@
 }
 
 .card:hover {
-  border: 1px solid #000000;
+  border: 2px solid #569b75;
   opacity: 100%;
   outline: none;
 }
