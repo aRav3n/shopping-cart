@@ -17,10 +17,20 @@ LinkButton.propTypes = {
 };
 
 export default function Navbar({ cart }) {
-  const [cartText, setCartText] = useState(`Cart (${cart.length} items)`);
+  const countOfItemsInCart = () => {
+    let count = 0;
+    for (let i = 0; i < cart.length; i++) {
+      const newCount = count + cart[i].qty;
+      count = newCount;
+    }
+    return count;
+  };
+  const count = countOfItemsInCart();
+  const [cartText, setCartText] = useState(`Cart (${count} items)`);
 
   useEffect(() => {
-    setCartText(`Cart (${cart.length} items)`);
+    const updatedCount = countOfItemsInCart();
+    setCartText(`Cart (${updatedCount} items)`);
   }, [cart]);
 
   return (

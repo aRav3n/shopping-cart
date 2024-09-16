@@ -52,6 +52,7 @@ function ProductCard(item, cart, setCart) {
   function addToCart() {
     addItemToCart(item, cart, setCart);
     alert("Item added to your cart!");
+    console.log(cart);
   }
 
   return (
