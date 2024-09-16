@@ -62,10 +62,6 @@
   max-width: 80vw;
 }
 
-.overlay > p {
-  font-size: 2rem;
-}
-
 .payButton {
   background-color: #00000022;
   font-weight: bold;
@@ -83,4 +79,10 @@
 
 .totalPrice {
   justify-self: end;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card * {
+    color: #2d322f;
+  }
 }

@@ -29,8 +29,16 @@ export default function Navbar({ cart }) {
   const [cartText, setCartText] = useState(`Cart (${count} items)`);
 
   useEffect(() => {
-    const updatedCount = countOfItemsInCart();
-    setCartText(`Cart (${updatedCount} items)`);
+    const countOfItemsInCart = () => {
+      let count = 0;
+      for (let i = 0; i < cart.length; i++) {
+        const newCount = count + cart[i].qty;
+        count = newCount;
+      }
+      return count;
+    };
+    const count = countOfItemsInCart();
+    setCartText(`Cart (${count} items)`);
   }, [cart]);
 
   return (
