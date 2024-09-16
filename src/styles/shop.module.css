@@ -6,6 +6,11 @@
   flex-direction: column;
   justify-content: space-between;
   opacity: 80%;
+  position: relative;
+}
+
+.card:focus {
+  border-color: blue;
 }
 
 .card img {
@@ -55,6 +60,10 @@
 .message {
   font-size: 2rem;
   max-width: 80vw;
+}
+
+.overlay > p {
+  font-size: 2rem;
 }
 
 .payButton {

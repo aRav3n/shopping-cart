@@ -5,22 +5,25 @@ import { v4 as uuid } from "uuid";
 import styles from "./styles/shop.module.css";
 
 const addItemToCart = (item, cart, setCart) => {
-  let newCart;
   let alreadyInCart = false;
-  cart === undefined ? (newCart = []) : (newCart = cart);
-  for (let i = 0; i < newCart.length; i++) {
-    if (!alreadyInCart) {
-      if (newCart[i].description === item.description) {
-        const cartObject = newCart[i];
-        cartObject.qty++;
-        cartObject.totalPrice = cartObject.qty * cartObject.price;
-        alreadyInCart = true;
-      }
+  const newCart = cart.map((cartItem) => {
+    if (cartItem.description === item.description) {
+      alreadyInCart = true;
+      return {
+        ...cartItem, // create a copy of the cart item
+        qty: cartItem.qty + 1,
+        totalPrice: (cartItem.qty + 1) * cartItem.price,
+      };
     }
-  }
+    return cartItem;
+  });
+
+  // If the item wasn't already in the cart, add it
   if (!alreadyInCart) {
-    newCart.push(item);
+    newCart.push({ ...item, qty: 1, totalPrice: item.price });
   }
+
+  // Update the cart state
   setCart(newCart);
 };
 
@@ -39,7 +42,7 @@ const createProductObject = (title, price, description, rating, imageURL) => {
   return returnObject;
 };
 
-function productCard(item, cart, setCart) {
+function ProductCard(item, cart, setCart) {
   const title = item.title;
   const price = item.price;
   const description = item.description;
@@ -48,6 +51,7 @@ function productCard(item, cart, setCart) {
 
   function addToCart() {
     addItemToCart(item, cart, setCart);
+    alert("Item added to your cart!");
   }
 
   return (
@@ -69,7 +73,7 @@ function productCard(item, cart, setCart) {
   );
 }
 
-productCard.propTypes = {
+ProductCard.propTypes = {
   item: PropTypes.object.isRequired,
   cart: PropTypes.array.isRequired,
   setCart: PropTypes.func.isRequired,
@@ -107,7 +111,7 @@ function ProductsList({ cart, setCart }) {
 
   function DisplayProductsList() {
     const listItems = productsList.map((item) =>
-      productCard(item, cart, setCart)
+      ProductCard(item, cart, setCart)
     );
 
     return <div className={styles.container}>{listItems}</div>;
