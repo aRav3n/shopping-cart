@@ -70,7 +70,7 @@ function PayNow() {
 }
 
 export default function Cart() {
-  const [cart] = useOutletContext();
+  const { cart } = useOutletContext();
   return (
     <>
       <DisplayCartItems cart={cart} />
