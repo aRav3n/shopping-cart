@@ -51,8 +51,6 @@ function ProductCard(item, cart, setCart) {
 
   function addToCart() {
     addItemToCart(item, cart, setCart);
-    alert("Item added to your cart!");
-    console.log(cart);
   }
 
   return (
@@ -80,7 +78,7 @@ ProductCard.propTypes = {
   setCart: PropTypes.func.isRequired,
 };
 
-function ProductsList({ cart, setCart }) {
+function ProductsList({ cart, setCart, itemAdded }) {
   const [productsList, setProductsList] = useState(null);
 
   const pushJsonToArray = (jsonObject) => {
@@ -115,7 +113,18 @@ function ProductsList({ cart, setCart }) {
       ProductCard(item, cart, setCart)
     );
 
-    return <div className={styles.container}>{listItems}</div>;
+    return (
+      <div className={styles.container}>
+        {listItems}
+        <div
+          className={
+            itemAdded ? styles.overlayVisible : styles.overlayInvisible
+          }
+        >
+          <p>Added to cart!</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -129,9 +138,10 @@ function ProductsList({ cart, setCart }) {
 ProductsList.propTypes = {
   cart: PropTypes.array.isRequired,
   setCart: PropTypes.func.isRequired,
+  itemAdded: PropTypes.bool.isRequired,
 };
 
 export default function Products() {
-  const [cart, setCart] = useOutletContext();
-  return <ProductsList cart={cart} setCart={setCart} />;
+  const {cart, setCart, itemAdded} = useOutletContext();
+  return <ProductsList cart={cart} setCart={setCart} itemAdded={itemAdded} />;
 }

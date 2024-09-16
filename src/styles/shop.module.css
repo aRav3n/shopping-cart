@@ -41,6 +41,7 @@
   justify-items: center;
   padding: 1vh 1vw;
   place-content: center;
+  position: relative;
   width: min(95vw, 1200px);
 }
 
@@ -60,6 +61,25 @@
 .message {
   font-size: 2rem;
   max-width: 80vw;
+}
+
+.overlayInvisible{
+  display: none;
+}
+
+.overlayVisible {
+  background-color: #afbab4;
+  border: 3px solid #569b75;
+  border-radius: 1rem;
+  display: grid;
+  height: 50vh;
+  place-content: center;
+  position: absolute;
+  width: 90vw;
+}
+
+.overlayVisible p {
+  font-size: 3rem;
 }
 
 .payButton {
