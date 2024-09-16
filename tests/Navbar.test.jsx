@@ -9,7 +9,7 @@ describe("Navigation bar", () => {
   it("Has nav element", () => {
     render(
       <MemoryRouter>
-        <Navbar />
+        <Navbar cart={[]} />
       </MemoryRouter>
     );
     const navElement = screen.getByRole("navigation");
@@ -18,7 +18,7 @@ describe("Navigation bar", () => {
   it("Has home button", () => {
     render(
       <MemoryRouter>
-        <Navbar />
+        <Navbar cart={[]} />
       </MemoryRouter>
     );
     const homeButton = screen.getByRole("button", { name: "Home" } );
@@ -27,19 +27,19 @@ describe("Navigation bar", () => {
   it("Has products button", () => {
     render(
       <MemoryRouter>
-        <Navbar />
+        <Navbar cart={[]} />
       </MemoryRouter>
     );
     const productButton = screen.getByRole("button", { name: "Products" } );
     expect(productButton).toBeInTheDocument();
   });
-  it("Has home button", () => {
+  it("Has cart button", () => {
     render(
       <MemoryRouter>
-        <Navbar />
+        <Navbar cart={[]} />
       </MemoryRouter>
     );
-    const cartButton = screen.getByRole("button", { name: "Cart" } );
+    const cartButton = screen.getByRole("button", { name: /cart/i } );
     expect(cartButton).toBeInTheDocument();
   });
 });
