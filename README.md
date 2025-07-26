@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Installation Instructions](#installation-instructions)
 - [Usage and Screenshots](#usage-and-screenshots)
 - [Technologies Used](#technologies-used)
 - [Dependencies and Credits](#dependencies-and-credits)
@@ -11,6 +12,25 @@
 ## Description
 
 This is a shopping website frontend built with Vite and React. It pulls data from a generic test API to populate the store.
+
+## Installation Instructions
+
+1. Clone or fork this repo
+2. cd into the project root directory (where the README.md file is located)
+3. Run the following in your terminal
+    - ``` bash
+      npm init -y
+      npm install prop-types react react-dom
+      npm install react-router-dom uuid
+      npm install @eslint/js @testing-library/jest-dom @testing-library/react --save-dev
+      npm install @testing-library/user-event @types/react @types/react-dom --save-dev
+      npm install @vitejs/plugin-react eslint eslint-plugin-react --save-dev
+      npm install eslint-plugin-react-hook eslint-plugin-react-refresh globals --save-dev
+      npm install jsdom vite vitest --save-dev
+      ```
+1. `npm run dev`
+   - `^` + `c` will end the process 
+1. Navigate to the url displayed in the terminal: `➜  Local:   http://localhost:5173/` 
 
 ## Usage and Screenshots
 
