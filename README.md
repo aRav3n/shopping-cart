@@ -34,7 +34,7 @@ This is a shopping website frontend built with Vite and React. It pulls data fro
 
 ## Usage and Screenshots
 
-<img src="./src/assets/screenshot.png" alt="screenshot" style="height: 50vh; width: auto;">
+<img src="./public/screenshot.png" alt="screenshot" style="height: 50vh; width: auto;">
 
 There is a navigational bar at the top of the page to cycle between the individual tabs. Clicking on an item adds it to your cart.
 
@@ -99,8 +99,8 @@ There is a navigational bar at the top of the page to cycle between the individu
 ## Project Structure
 
 ```bash
+├──public/                 # Local images are stored here
 ├──src/
-    ├── assets/            # Images are stored here
     └── styles/            # Stylesheets are stored here
 └──tests/                  # Test files are stored here
 ```
