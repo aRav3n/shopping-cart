@@ -20,13 +20,7 @@ This is a shopping website frontend built with Vite and React. It pulls data fro
 3. Run the following in your terminal
     - ``` bash
       npm init -y
-      npm install prop-types react react-dom
-      npm install react-router-dom uuid
-      npm install @eslint/js @testing-library/jest-dom @testing-library/react --save-dev
-      npm install @testing-library/user-event @types/react @types/react-dom --save-dev
-      npm install @vitejs/plugin-react eslint eslint-plugin-react --save-dev
-      npm install eslint-plugin-react-hook eslint-plugin-react-refresh globals --save-dev
-      npm install jsdom vite vitest --save-dev
+      npm install
       ```
 1. `npm run dev`
    - `^` + `c` will end the process 
